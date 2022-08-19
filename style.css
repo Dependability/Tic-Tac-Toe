@@ -1,0 +1,50 @@
+html {
+    font-size: 10px;
+}
+body {
+    background-color: rgb(128, 202, 221);
+} 
+
+h1 {
+    text-align: center;
+    font-size: 5.5rem;
+}
+
+
+.gameboard {
+    padding: 40px;
+    display: grid;
+    height: 600px;
+    justify-content: center;
+
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 15px;
+}
+.cell {
+    background-color: rgb(59, 141, 161);
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.other {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 40px;
+}
+
+
+.start, .restart {
+    font-size: 2rem;
+    border-radius: 10px;
+    border-style: none;
+    border: 2px rgb(4, 33, 41) solid;
+    background-color: rgb(59, 141, 161);
+    color: rgb(4, 33, 41);
+    width: 120px;
+    padding: 10px;
+    cursor: pointer;
+}
