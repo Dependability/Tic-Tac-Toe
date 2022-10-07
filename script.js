@@ -44,7 +44,14 @@ const Game = (function () {
     const players = [];
     let turn = null;
     const cells = document.querySelectorAll('.cell');
-    let mode = 'PVP';
+    const winnerDisplay = document.querySelector('.winner');
+    let mode = 'CPU';
+
+    const displayWinner = function() {
+        winnerDisplay.textContent = (gameWinner == 'draw') ? 'Draw.' : `${gameWinner} has won!`;
+        winnerDisplay.classList.add('visible');
+        console.log(winnerDisplay.classList)
+    }
 
 
     const _turn = function (e) {
@@ -58,14 +65,14 @@ const Game = (function () {
             GameBoard.board[cellIndex - 1] = players[turn].symbol;
             if (GameBoard.check_win(players[turn].symbol)) {
                 gameWinner = players[turn].name;
-                console.log(`${gameWinner} has won`);
+                displayWinner();
                 turn = null;
                 return null
             }
             if (GameBoard.check_full()) {
                 turn = null;
-                gameWinner = 'None'
-                console.log(`${gameWinner} has won`);
+                gameWinner = 'draw'
+                displayWinner();
                 return null
             }
 
@@ -86,14 +93,14 @@ const Game = (function () {
                 
                 if (GameBoard.check_win(players[turn].symbol)) {
                     gameWinner = players[turn].name;
-                    console.log(`${gameWinner} has won`);
+                    displayWinner();
                     turn = null;
                     return null
                 }
                 if (GameBoard.check_full()) {
                     turn = null;
-                    gameWinner = 'None'
-                    console.log(`${gameWinner} has won`);
+                    gameWinner = 'draw';
+                    displayWinner();
                     return null
                 }
                 turn = (turn == 0) ? 1 : 0;
@@ -104,6 +111,7 @@ const Game = (function () {
     }
 
     const _gameEnd = function() {
+        winnerDisplay.classList.remove('visible');
         cells.forEach(cell => {
             cell.innerHTML = '';
             cell.removeEventListener('click', _turn)
@@ -138,6 +146,12 @@ const Game = (function () {
 
 const startBtn = document.querySelector('.start')
 startBtn.addEventListener('click', () => {
+    Game.startGame();
+}
+)
+
+const restartBtn = document.querySelector('.restart');
+restartBtn.addEventListener('click', () => {
     Game.startGame();
 }
 )

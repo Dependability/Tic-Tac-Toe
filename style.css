@@ -48,3 +48,22 @@ h1 {
     padding: 10px;
     cursor: pointer;
 }
+
+.winner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    position: absolute;
+    top: 150px;
+    left: 40%;
+    height: 50px;
+    font-size: 32px;
+    width: 20%;
+    border: 2px rgb(2, 73, 8) solid ;
+    background-color: rgb(9, 216, 26);
+}
+
+.visible {
+    visibility: visible;
+}
