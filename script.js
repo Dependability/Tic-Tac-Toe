@@ -53,6 +53,10 @@ const Game = (function () {
         console.log(winnerDisplay.classList)
     }
 
+    const _minimax = function() {
+
+    }
+
 
     const _turn = function (e) {
         if (turn != null) {  
@@ -79,9 +83,14 @@ const Game = (function () {
             turn = (turn == 0) ? 1 : 0;
         
             if (mode == 'CPU') {
+                //Choose random Cell
                 let choice = GameBoard.board.map((elem1, index) => index).filter(elem => GameBoard.board[elem] == '');
                 let cellIndex = choice[Math.floor(Math.random() * choice.length)];
                 GameBoard.board[cellIndex] = players[turn].symbol;
+
+                //Use MiniMax
+                /*Imagine some elaboratae recursive algorithm, that I was
+                patient enough to implement */
 
                 const chosenCell = document.querySelector(`.cell-${cellIndex + 1}`)
                 chosenCell.removeEventListener('click',_turn)
