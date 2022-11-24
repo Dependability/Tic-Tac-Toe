@@ -1,5 +1,11 @@
 html {
     font-size: 10px;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 body {
     background-color: rgb(128, 202, 221);
@@ -8,13 +14,14 @@ body {
 h1 {
     text-align: center;
     font-size: 5.5rem;
+    margin: 40px 0;
 }
 
 
 .gameboard {
-    padding: 40px;
+    padding: 20px;
     display: grid;
-    height: 600px;
+    height: 500px;
     justify-content: center;
 
     align-content: center;
@@ -55,7 +62,7 @@ h1 {
     justify-content: center;
     visibility: hidden;
     position: absolute;
-    top: 150px;
+    top: 100px;
     left: 40%;
     height: 50px;
     font-size: 32px;
